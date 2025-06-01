@@ -31,6 +31,13 @@ dependencies:
   flutter:
     sdk: flutter
   speech_to_text: ^7.0.0
+<<<<<<< HEAD
+  permission_handler: ^12.0.0+1
+  flutter_tts: ^4.2.2
+  animate_do: ^4.2.0
+  flutter_dotenv: ^5.2.1
+=======
+>>>>>>> parent of 435a15c (chatGPT or Dall-E decision by chatGPT)
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.

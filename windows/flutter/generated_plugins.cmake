@@ -3,6 +3,11 @@
 #
 
 list(APPEND FLUTTER_PLUGIN_LIST
+<<<<<<< HEAD
+  flutter_tts
+  permission_handler_windows
+=======
+>>>>>>> parent of 435a15c (chatGPT or Dall-E decision by chatGPT)
 )
 
 list(APPEND FLUTTER_FFI_PLUGIN_LIST

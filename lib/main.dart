@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:voice_assistant/pallete.dart';
 
 import 'home_page.dart';
 
-void main() {
+void main() async{
+  await dotenv.load(); // Important: wait until it's loaded
   runApp(const MyApp());
 }
 
