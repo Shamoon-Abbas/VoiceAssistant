@@ -1,14 +1,14 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
-<<<<<<< HEAD
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:permission_handler/permission_handler.dart';
-=======
->>>>>>> parent of 435a15c (chatGPT or Dall-E decision by chatGPT)
 import 'package:voice_assistant/feature_box.dart';
 import 'package:voice_assistant/pallete.dart';
 import 'package:speech_to_text/speech_recognition_result.dart';
 import 'package:speech_to_text/speech_to_text.dart';
+import 'package:permission_handler/permission_handler.dart';
+
+import 'openai_service.dart';
 
 
 class HomePage extends StatefulWidget {
@@ -21,13 +21,10 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   final speechToText= SpeechToText();
   String lastWords='';
-<<<<<<< HEAD
   final OpenAIService openAIService=OpenAIService();
   final flutterTts=FlutterTts();
   String? generatedContent;
   String? generatedImageUrl;
-=======
->>>>>>> parent of 435a15c (chatGPT or Dall-E decision by chatGPT)
 
   @override
   void initState() {
@@ -37,7 +34,6 @@ class _HomePageState extends State<HomePage> {
     initTextToSpeech();
   }
 
-<<<<<<< HEAD
 
 
   Future<void> initSpeechToText() async {
@@ -71,14 +67,6 @@ class _HomePageState extends State<HomePage> {
 
 
 
-=======
-  Future<void> initSpeechToText() async{
-    await speechToText.initialize();
-    setState(() {});
-  }
-
-
->>>>>>> parent of 435a15c (chatGPT or Dall-E decision by chatGPT)
   Future<void> startListening() async {
     await speechToText.listen(onResult: onSpeechResult);
     setState(() {});
@@ -139,6 +127,7 @@ class _HomePageState extends State<HomePage> {
     await flutterTts.speak(content);
   }
 
+
   @override
   void dispose() {
     // TODO: implement dispose
@@ -162,7 +151,6 @@ class _HomePageState extends State<HomePage> {
         centerTitle: true,
         leading: Icon(Icons.menu),
       ),
-<<<<<<< HEAD
       body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -247,8 +235,8 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
             )
-        
-        
+
+
           ],
         ),
       ),
@@ -272,79 +260,7 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
       ),
-=======
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          SizedBox(height: 10,),
-          Stack(
-            children: [
-              Center(
-                child: Container(
-                  margin: EdgeInsets.only(top: 10),
-                  height: 140,
-                  width: 140,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: Pallete.assistantCircleColor
-                  ),
-                ),
-              ),
-              Container(
-                  height: 153,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(image: AssetImage("assets/images/va.webp"))
-                  ),
-                  // child: Image.asset("assets/images/virtualAssistant.png")
-                ),
-            ],
-          ),
-          Container(
-            margin: EdgeInsets.symmetric(horizontal: 30,vertical: 30),
-            decoration: BoxDecoration(
-                border: Border.all(
-                    color: Pallete.borderColor,width: 2
-                ),borderRadius: BorderRadius.circular(20).copyWith(topLeft: Radius.zero),
-            ),
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Padding(
-                padding: const EdgeInsets.all(10),
-                child: Text("Good morning, what task can I do for you?",style: TextStyle(
-                  fontFamily: 'Cera Pro',
-                  color: Pallete.mainFontColor,
-                  fontSize: 25
-                ),),
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 30),
-            child: Text("Here are a few features",style: TextStyle(
-              fontFamily: 'Cera Pro',
-              color: Pallete.mainFontColor,
-              fontSize: 20,
-              fontWeight: FontWeight.bold
-            ),),
-          ),
-          FeatureBox(color: Pallete.firstSuggestionBoxColor, header: "ChatGPT", description: "A smarter way to stay organized and informed with ChatGPT"),
-          FeatureBox(color: Pallete.secondSuggestionBoxColor, header: "Dall-E", description: "Get inspired and stay creative with your personal assistant powered by Dall-E"),
-          FeatureBox(color: Pallete.thirdSuggestionBoxColor, header: "Smart Voice Assistant", description: "Get the best of both worlds with a voice assistant powered by Dall-E and ChatGPT"),
->>>>>>> parent of 435a15c (chatGPT or Dall-E decision by chatGPT)
 
-
-        ],
-      ),
-      floatingActionButton: FloatingActionButton(backgroundColor: Pallete.secondSuggestionBoxColor,onPressed: ()async{
-        if(await speechToText.hasPermission && speechToText.isNotListening){
-          await startListening();
-        } else if(speechToText.isListening){
-          await stopListening();
-        }else{
-          initSpeechToText();
-        }
-      },child: Icon(Icons.mic),),
 
 
     );
